@@ -1,5 +1,6 @@
 import React from 'react';
 import { TETROMINOS, EMPTY_CELL } from 'game-constants';
+import WebsimSocket from '@websim-dev/websim-socket';
 
 const room = new WebsimSocket();
 const HS_COLLECTION = 'tetris_highscore_v1'; // Versioned collection for schema safety
@@ -120,4 +121,3 @@ export function HighScores({ onStartReplay }) {
     </div>
   );
 }
-

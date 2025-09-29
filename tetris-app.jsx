@@ -4,6 +4,7 @@ import * as GameLogic from "game-logic";
 import { ROWS, COLS, TETROMINOS, EMPTY_CELL, PIECE_KEYS, INITIAL_SPEED_MS } from "game-constants";
 import { HighScores, submitHighScore } from "high-scores";
 import * as ReplayLogic from "replay-logic";
+import WebsimSocket from "@websim-dev/websim-socket";
 const room = new WebsimSocket();
 const CELL_COLORS = {
   [EMPTY_CELL]: "transparent",
@@ -28,7 +29,7 @@ const NextPieceDisplay = React.memo(({ piece }) => {
       gridCells.push(
         /* @__PURE__ */ jsxDEV("div", { className: "cell", style: { backgroundColor: color } }, `${y}-${x}`, false, {
           fileName: "<stdin>",
-          lineNumber: 38,
+          lineNumber: 39,
           columnNumber: 17
         })
       );
@@ -37,17 +38,17 @@ const NextPieceDisplay = React.memo(({ piece }) => {
   return /* @__PURE__ */ jsxDEV("div", { className: "stats", children: [
     /* @__PURE__ */ jsxDEV("h2", { children: "Next Piece" }, void 0, false, {
       fileName: "<stdin>",
-      lineNumber: 45,
+      lineNumber: 46,
       columnNumber: 13
     }),
     /* @__PURE__ */ jsxDEV("div", { className: "next-piece-display", children: gridCells }, void 0, false, {
       fileName: "<stdin>",
-      lineNumber: 46,
+      lineNumber: 47,
       columnNumber: 13
     })
   ] }, void 0, true, {
     fileName: "<stdin>",
-    lineNumber: 44,
+    lineNumber: 45,
     columnNumber: 9
   });
 });
@@ -96,13 +97,13 @@ const TetrisBoard = ({ board, currentPiece, ghostY, isReplaying }) => {
       false,
       {
         fileName: "<stdin>",
-        lineNumber: 100,
+        lineNumber: 101,
         columnNumber: 21
       }
     );
   }) }, void 0, false, {
     fileName: "<stdin>",
-    lineNumber: 96,
+    lineNumber: 97,
     columnNumber: 9
   });
 };
@@ -540,13 +541,13 @@ const TetrisApp = () => {
   return /* @__PURE__ */ jsxDEV("div", { id: "root-container", children: [
     /* @__PURE__ */ jsxDEV(HighScores, { onStartReplay: handleStartReplay }, void 0, false, {
       fileName: "<stdin>",
-      lineNumber: 691,
+      lineNumber: 692,
       columnNumber: 13
     }),
     /* @__PURE__ */ jsxDEV("div", { className: "tetris-container", children: [
       isReplaying && /* @__PURE__ */ jsxDEV("div", { className: "replay-mode-indicator", children: "REPLAY MODE" }, void 0, false, {
         fileName: "<stdin>",
-        lineNumber: 694,
+        lineNumber: 695,
         columnNumber: 33
       }),
       /* @__PURE__ */ jsxDEV("div", { className: "game-board-wrapper", style: { position: "relative" }, children: [
@@ -562,19 +563,19 @@ const TetrisApp = () => {
           false,
           {
             fileName: "<stdin>",
-            lineNumber: 696,
+            lineNumber: 697,
             columnNumber: 21
           }
         ),
         (isGameOver || isPaused) && /* @__PURE__ */ jsxDEV("div", { className: "game-over-overlay", children: [
           isGameOver && /* @__PURE__ */ jsxDEV("h1", { children: "GAME OVER" }, void 0, false, {
             fileName: "<stdin>",
-            lineNumber: 705,
+            lineNumber: 706,
             columnNumber: 44
           }),
           isPaused && /* @__PURE__ */ jsxDEV("h1", { children: "PAUSED" }, void 0, false, {
             fileName: "<stdin>",
-            lineNumber: 706,
+            lineNumber: 707,
             columnNumber: 42
           }),
           /* @__PURE__ */ jsxDEV("p", { children: [
@@ -582,7 +583,7 @@ const TetrisApp = () => {
             score
           ] }, void 0, true, {
             fileName: "<stdin>",
-            lineNumber: 707,
+            lineNumber: 708,
             columnNumber: 29
           }),
           /* @__PURE__ */ jsxDEV("p", { children: [
@@ -590,44 +591,44 @@ const TetrisApp = () => {
             level
           ] }, void 0, true, {
             fileName: "<stdin>",
-            lineNumber: 708,
+            lineNumber: 709,
             columnNumber: 29
           }),
           isReplaying && /* @__PURE__ */ jsxDEV("button", { className: "button", onClick: () => handleRestart(), children: "Start New Game" }, void 0, false, {
             fileName: "<stdin>",
-            lineNumber: 711,
+            lineNumber: 712,
             columnNumber: 33
           }),
           !isReplaying && !isRunning && /* @__PURE__ */ jsxDEV("button", { className: "button", onClick: () => startGame(), children: isGameOver ? "Play Again" : "Start Game" }, void 0, false, {
             fileName: "<stdin>",
-            lineNumber: 717,
+            lineNumber: 718,
             columnNumber: 33
           }),
           !isReplaying && isPaused && /* @__PURE__ */ jsxDEV("button", { className: "button", onClick: togglePause, children: "Resume (P)" }, void 0, false, {
             fileName: "<stdin>",
-            lineNumber: 723,
+            lineNumber: 724,
             columnNumber: 33
           })
         ] }, void 0, true, {
           fileName: "<stdin>",
-          lineNumber: 704,
+          lineNumber: 705,
           columnNumber: 25
         })
       ] }, void 0, true, {
         fileName: "<stdin>",
-        lineNumber: 695,
+        lineNumber: 696,
         columnNumber: 17
       })
     ] }, void 0, true, {
       fileName: "<stdin>",
-      lineNumber: 693,
+      lineNumber: 694,
       columnNumber: 13
     }),
     /* @__PURE__ */ jsxDEV("div", { className: "stats-panel", children: [
       /* @__PURE__ */ jsxDEV("div", { className: "stats", children: [
         /* @__PURE__ */ jsxDEV("h2", { children: "Stats" }, void 0, false, {
           fileName: "<stdin>",
-          lineNumber: 734,
+          lineNumber: 735,
           columnNumber: 21
         }),
         /* @__PURE__ */ jsxDEV("p", { children: [
@@ -635,7 +636,7 @@ const TetrisApp = () => {
           score
         ] }, void 0, true, {
           fileName: "<stdin>",
-          lineNumber: 735,
+          lineNumber: 736,
           columnNumber: 21
         }),
         /* @__PURE__ */ jsxDEV("p", { children: [
@@ -643,7 +644,7 @@ const TetrisApp = () => {
           lines
         ] }, void 0, true, {
           fileName: "<stdin>",
-          lineNumber: 736,
+          lineNumber: 737,
           columnNumber: 21
         }),
         /* @__PURE__ */ jsxDEV("p", { children: [
@@ -651,80 +652,80 @@ const TetrisApp = () => {
           level
         ] }, void 0, true, {
           fileName: "<stdin>",
-          lineNumber: 737,
+          lineNumber: 738,
           columnNumber: 21
         })
       ] }, void 0, true, {
         fileName: "<stdin>",
-        lineNumber: 733,
+        lineNumber: 734,
         columnNumber: 17
       }),
       !isReplaying && /* @__PURE__ */ jsxDEV(NextPieceDisplay, { piece: nextPiece }, void 0, false, {
         fileName: "<stdin>",
-        lineNumber: 740,
+        lineNumber: 741,
         columnNumber: 34
       }),
       /* @__PURE__ */ jsxDEV("div", { className: "stats", children: [
         /* @__PURE__ */ jsxDEV("h2", { children: "Controls" }, void 0, false, {
           fileName: "<stdin>",
-          lineNumber: 743,
+          lineNumber: 744,
           columnNumber: 21
         }),
         /* @__PURE__ */ jsxDEV("p", { children: "\u2190 \u2192 : Move" }, void 0, false, {
           fileName: "<stdin>",
-          lineNumber: 744,
+          lineNumber: 745,
           columnNumber: 21
         }),
         /* @__PURE__ */ jsxDEV("p", { children: "\u2193 : Soft Drop" }, void 0, false, {
           fileName: "<stdin>",
-          lineNumber: 745,
+          lineNumber: 746,
           columnNumber: 21
         }),
         /* @__PURE__ */ jsxDEV("p", { children: "\u2191 / X : Rotate" }, void 0, false, {
           fileName: "<stdin>",
-          lineNumber: 746,
+          lineNumber: 747,
           columnNumber: 21
         }),
         /* @__PURE__ */ jsxDEV("p", { children: "Space : Hard Drop" }, void 0, false, {
           fileName: "<stdin>",
-          lineNumber: 747,
+          lineNumber: 748,
           columnNumber: 21
         }),
         /* @__PURE__ */ jsxDEV("p", { children: "P : Pause" }, void 0, false, {
           fileName: "<stdin>",
-          lineNumber: 748,
+          lineNumber: 749,
           columnNumber: 21
         }),
         /* @__PURE__ */ jsxDEV("button", { className: "button", onClick: handleRestart, children: "Restart Game" }, void 0, false, {
           fileName: "<stdin>",
-          lineNumber: 750,
+          lineNumber: 751,
           columnNumber: 21
         }),
         /* @__PURE__ */ jsxDEV("button", { className: "button", onClick: togglePause, disabled: !isRunning || isGameOver, children: isPaused ? "Resume" : "Pause" }, void 0, false, {
           fileName: "<stdin>",
-          lineNumber: 753,
+          lineNumber: 754,
           columnNumber: 21
         })
       ] }, void 0, true, {
         fileName: "<stdin>",
-        lineNumber: 742,
+        lineNumber: 743,
         columnNumber: 17
       })
     ] }, void 0, true, {
       fileName: "<stdin>",
-      lineNumber: 732,
+      lineNumber: 733,
       columnNumber: 13
     })
   ] }, void 0, true, {
     fileName: "<stdin>",
-    lineNumber: 690,
+    lineNumber: 691,
     columnNumber: 9
   });
 };
 if (typeof React !== "undefined" && typeof ReactDOM !== "undefined") {
   ReactDOM.createRoot(document.getElementById("root")).render(/* @__PURE__ */ jsxDEV(TetrisApp, {}, void 0, false, {
     fileName: "<stdin>",
-    lineNumber: 764,
+    lineNumber: 765,
     columnNumber: 63
   }));
 } else {
